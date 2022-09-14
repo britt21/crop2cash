@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Crop2Cash">
         <activity
-            android:name=".MainActivity"
+            android:name="com.example.onboarding.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,6 +18,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.example.homeactivity.HomeActivity"/>
+        <activity android:name=".MainActivity"/>
 
     </application>
 

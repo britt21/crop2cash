@@ -3,6 +3,7 @@ pluginManagement {
         gradlePluginPortal()
         google()
         mavenCentral()
+
     }
 }
 dependencyResolutionManagement {
@@ -10,9 +11,12 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven { url "https://jitpack.io" }
+
     }
 }
 rootProject.name = "Crop2Cash"
 include ':app'
 include ':OnBoarding'
-include ':HomeActivity'
+include ':Home'
+include ':common'
