@@ -20,7 +20,7 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySplashBinding.inflate(layoutInflater)
 
-        window.statusBarColor = ContextCompat.getColor(this, R.color.prplre)
+        window.statusBarColor = ContextCompat.getColor(this, com.example.homeactivity.R.color.black)
 
 
         binding.cropImg.animate().apply {

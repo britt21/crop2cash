@@ -4,6 +4,9 @@
 
     <application>
         <activity
+            android:name=".TestMainActivity"
+            android:exported="false" />
+        <activity
             android:name=".SplashActivity"
             android:exported="true" />
     </application>

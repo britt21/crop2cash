@@ -3,8 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/USER/AndroidStudioProjects/Crop2Cash/Home/src/main/res/layout/activity_home.xml" value="0.12760416666666666" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/Crop2Cash/Home/src/main/res/drawable/car.xml" value="0.2565" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/Crop2Cash/Home/src/main/res/drawable/msg_bg.xml" value="0.2865" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/Crop2Cash/Home/src/main/res/drawable/price_bg.xml" value="0.1" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/Crop2Cash/Home/src/main/res/drawable/serach_bg.xml" value="0.273" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/Crop2Cash/Home/src/main/res/layout/activity_caamera.xml" value="0.2760416666666667" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/Crop2Cash/Home/src/main/res/layout/activity_home.xml" value="0.19199999334161955" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/Crop2Cash/Home/src/main/res/layout/discount_dialog.xml" value="0.2879999900124293" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/Crop2Cash/Home/src/main/res/layout/img_list.xml" value="0.28229166666666666" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/Crop2Cash/Home/src/main/res/layout/product_listitem.xml" value="0.5847272524494778" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Crop2Cash/Home/src/main/res/layout/shmmer_layout.xml" value="0.28229166666666666" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/Crop2Cash/Home/src/main/res/menu/bottom_menu.xml" value="0.23703703703703705" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Crop2Cash/OnBoarding/src/main/res/drawable/crops.xml" value="0.2865" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Crop2Cash/OnBoarding/src/main/res/layout/activity_splash.xml" value="0.2879999900124293" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Crop2Cash/OnBoarding/src/main/res/layout/shmmer_layout.xml" value="0.28229166666666666" />

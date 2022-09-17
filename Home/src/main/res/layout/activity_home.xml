@@ -3,19 +3,128 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="#FFFFFF"
     android:layout_height="match_parent"
     tools:context=".HomeActivity">
 
     <com.mikelau.views.shimmer.ShimmerRecyclerViewX
-        android:id="@+id/shimmer"
+        android:id="@+id/rv_shimmer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="0dp"
+        android:alpha="0"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintBottom_toTopOf="@+id/bot"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seachit"
+        app:layout_constraintVertical_bias="1.0"
+        app:shimmer_demo_layout="@layout/shmmer_layout"
+        app:spanCount="2"
+        tools:listitem="@layout/product_listitem" />
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#3A005E"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:shimmer_demo_layout="@layout/shmmer_layout"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
 
+        <ImageView
+            android:id="@+id/msgct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center"
+            android:layout_marginEnd="20dp"
+            android:tint="@color/white"
+            app:srcCompat="@drawable/ic_baseline_message_24"
+            tools:ignore="UseAppTint" />
+
+
+        <FrameLayout
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="end|center"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/msg_bg">
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="5"
+                android:textColor="#FFFCFC"
+                android:textSize="12dp" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:textSize="18dp"
+            android:text="Crop2Cash"
+            android:layout_gravity="center|start"
+            android:fontFamily="@font/vaca"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/seachit"
+
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/serach_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="end|center"
+            android:layout_marginEnd="20dp"
+            android:tint="@color/black"
+            app:srcCompat="@drawable/ic_baseline_search_24"
+            tools:ignore="UseAppTint" />
+
+        <ImageView
+            android:id="@+id/camit"
+            android:layout_width="27dp"
+            android:layout_height="27dp"
+            android:layout_gravity="center|start"
+            android:layout_marginStart="20dp"
+            android:tint="@color/black"
+            app:srcCompat="@drawable/ic_camera_blacck"
+            tools:ignore="UseAppTint" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Search Anything..."
+            android:layout_gravity="center|start"
+            android:layout_marginStart="60dp"/>
+    </FrameLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bot"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:menu="@menu/bottom_menu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
