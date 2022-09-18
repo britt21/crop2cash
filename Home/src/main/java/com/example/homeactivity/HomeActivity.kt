@@ -25,6 +25,7 @@ import com.example.common.Product
 import com.example.common.model.ProductsItem
 import com.example.homeactivity.databinding.ActivityHomeBinding
 import com.example.network.room.SingleProduct
+import com.google.android.material.navigation.NavigationBarView
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
@@ -44,9 +45,40 @@ class HomeActivity : AppCompatActivity(),Onclick {
         viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
 
         viewModel.getProducts()
-
-
         val soonintent = Intent(this,ComingSoonActivity::class.java)
+
+        binding.bot.setOnItemSelectedListener(object : NavigationBarView.OnItemSelectedListener{
+            override fun onNavigationItemSelected(item: MenuItem): Boolean {
+                return when(item.itemId){
+                    R.id.settingid ->{
+                        startActivity(soonintent)
+                        return true
+                    }
+                    R.id.walletid ->{
+                        startActivity(soonintent)
+                        return true
+                    }
+
+                     R.id.cartid ->{
+                        startActivity(soonintent)
+                        return true
+                    }
+                     R.id.homeid ->{
+                         val homeIntent = Intent(this@HomeActivity,HomeActivity::class.java)
+                        startActivity(homeIntent)
+                        return true
+                    }
+
+
+
+                    else -> {
+                        return false
+                    }
+                }
+            }
+
+        })
+
         binding.msgct.setOnClickListener {
             startActivity(soonintent)
         }
@@ -147,4 +179,7 @@ if (prods != null){
 
     }
 
+    fun  notificationManager(){
+
+    }
 }

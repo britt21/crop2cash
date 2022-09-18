@@ -39,7 +39,7 @@ class DetailsActivity : AppCompatActivity() {
         }
 
         comments.add(Comment("Kalistus Emmanuel","its 5 Star For Me"))
-        comments.add(Comment("AdeKunle Bankole","Cash to Crop Is The Best Abeg"))
+        comments.add(Comment("Adekunle Bankole","Crop to Cash Is The Best Abeg"))
         comments.add(Comment("Cynthia Michelle","Not to Be Compared, with With 5 star for me"))
         comments.add(Comment("Prosper Daniel","Fast Dilivery Smooth User Experiance"))
         comments.add(Comment("Faith Anonymus","5 Star"))

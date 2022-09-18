@@ -3,11 +3,13 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:title="Home"
+        android:id="@+id/homeid"
         android:icon="@drawable/ic_home"/>
 
-    <item android:title="Cart" android:icon="@drawable/ic_cart"/>
+    <item   android:id="@+id/cartid" android:title="Cart" android:icon="@drawable/ic_cart"/>
 
-    <item android:title="Settings"
-        android:icon="@drawable/ic_settings"/>
+    <item android:id="@+id/walletid" android:title="Wallet" android:icon="@drawable/ic_baseline_account_balance_wallet_24"/>
+    <item android:title="Settings" android:id="@+id/settingid" android:icon="@drawable/ic_settings"/>
+
 
 </menu>
