@@ -1,15 +1,16 @@
 package com.example.homeactivity
 
+import android.app.Application
 import android.os.CountDownTimer
 import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
+import com.example.common.DataManager
 import com.example.common.NetworkHelper
+import com.example.common.Product
 import com.example.common.model.Products
 import com.example.network.ProductRepository
 import com.example.network.room.ProductEntity
+import com.example.network.room.SingleProduct
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -20,9 +21,14 @@ import java.lang.StringBuilder
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeViewModel @Inject constructor(private val productRepository: ProductRepository) : ViewModel(){
+class HomeViewModel @Inject constructor(private val productRepository: ProductRepository,application: Application) : AndroidViewModel(application){
 
+    val dataManager = DataManager(application.applicationContext)
     val readProductRoom : LiveData<List<ProductEntity>> = productRepository.readProduct()
+    val readSingleProduct : LiveData<SingleProduct> =  productRepository.readSingleProduct()
+    val readProduct : LiveData<Product> =  dataManager.readProduct.asLiveData()
+
+
     private val _liveProduct = MutableLiveData<NetworkHelper<Products>>()
     val liveProduct : LiveData<NetworkHelper<Products>>
     get() = _liveProduct
@@ -37,6 +43,12 @@ class HomeViewModel @Inject constructor(private val productRepository: ProductRe
 
 
     var  timer : CountDownTimer? = null
+
+    fun saveSingleProduct(singleProduct: SingleProduct){
+        viewModelScope.launch(Dispatchers.IO) {
+            productRepository.saveSingleProduct(singleProduct)
+        }
+    }
 
     fun startTimer (){
       val timer =   object : CountDownTimer(6000,1000){

@@ -1,5 +1,7 @@
 package com.example.homeactivity
 
+import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,8 +12,9 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.common.model.ProductsItem
+import com.example.network.room.SingleProduct
 
-class ProductAdapter : ListAdapter<ProductsItem, ProductAdapter.ProductViewHolder>(ProductDiffer) {
+class ProductAdapter(val context : Context,val onclick: Onclick) : ListAdapter<ProductsItem, ProductAdapter.ProductViewHolder>(ProductDiffer) {
     object ProductDiffer : DiffUtil.ItemCallback<ProductsItem>(){
         override fun areItemsTheSame(oldItem: ProductsItem, newItem: ProductsItem): Boolean {
             return oldItem.title === newItem.title
@@ -38,6 +41,19 @@ class ProductAdapter : ListAdapter<ProductsItem, ProductAdapter.ProductViewHolde
         for (images in curList.images){
             holder.pimg.load(images)
         }
+        var singleProduct = SingleProduct(0,"","")
+
+        holder.itemView.setOnClickListener {
+            for (images in curList.images){
+                singleProduct = SingleProduct(0,images,curList.title)
+            }
+
+            onclick.click(singleProduct)
+        }
     }
 
+}
+
+interface Onclick{
+    fun click(productsItem: SingleProduct)
 }

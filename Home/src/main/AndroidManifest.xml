@@ -4,6 +4,12 @@
 
     <application>
         <activity
+            android:name=".ComingSoonActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DetailsActivity"
+            android:exported="false" />
+        <activity
             android:name=".CaameraActivity"
             android:exported="false" />
         <activity

@@ -11,6 +11,7 @@
         android:id="@+id/rv_shimmer"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="3dp"
         android:alpha="0"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintBottom_toTopOf="@+id/bot"
@@ -26,7 +27,7 @@
         android:id="@+id/frameLayout"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="#3A005E"
+        android:background="@color/drk_prpl"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -70,7 +71,7 @@
             android:textSize="18dp"
             android:text="Crop2Cash"
             android:layout_gravity="center|start"
-            android:fontFamily="@font/vaca"
+            android:fontFamily="monospace"
             android:textColor="#FFFFFF"
             android:textStyle="bold"
             app:layout_constraintTop_toTopOf="parent" />
@@ -78,7 +79,6 @@
 
     <FrameLayout
         android:id="@+id/seachit"
-
         android:layout_width="0dp"
         android:layout_height="45dp"
         android:layout_marginStart="32dp"
@@ -90,6 +90,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout">
 
+        <EditText
+            android:id="@+id/searchit"
+            android:hint="Search anything..."
+            android:paddingStart="50dp"
+            android:textColor="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/serach_bg"/>
         <ImageView
             android:id="@+id/imageView2"
             android:layout_width="25dp"
@@ -110,13 +118,6 @@
             app:srcCompat="@drawable/ic_camera_blacck"
             tools:ignore="UseAppTint" />
 
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Search Anything..."
-            android:layout_gravity="center|start"
-            android:layout_marginStart="60dp"/>
     </FrameLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
