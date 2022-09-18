@@ -2,6 +2,7 @@ package com.example.homeactivity
 
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,6 +36,8 @@ class ProductAdapter(val context : Context,val onclick: Onclick) : ListAdapter<P
     class ProductViewHolder(val view : View) : RecyclerView.ViewHolder(view){
         val rvimg = view.findViewById<RecyclerView>(R.id.rv_img)
         val ptitle = view.findViewById<TextView>(R.id.pname)
+        val like = view.findViewById<ImageView>(R.id.likebtn)
+        val phone = view.findViewById<ImageView>(R.id.phone)
         val buybtn = view.findViewById<FrameLayout>(R.id.buytit)
     }
 
@@ -48,6 +51,15 @@ class ProductAdapter(val context : Context,val onclick: Onclick) : ListAdapter<P
         holder.ptitle.text = curList.title
         var singleProduct = SingleProduct(0,"","")
 
+        holder.like.setOnClickListener {
+            holder.like.setImageResource(R.drawable.ic_like_red)
+        }
+        holder.phone.setOnClickListener {
+            val numb = "08181050543"
+            val dialIntent = Intent(Intent.ACTION_DIAL)
+            dialIntent.data = Uri.parse("tel:$numb")
+            context.startActivity(dialIntent)
+        }
         holder.buybtn.setOnClickListener {
             title = curList.title
             for (images in curList.images){

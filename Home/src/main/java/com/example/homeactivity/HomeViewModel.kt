@@ -1,6 +1,7 @@
 package com.example.homeactivity
 
 import android.app.Application
+import android.content.Context
 import android.os.CountDownTimer
 import android.util.Log
 import androidx.lifecycle.*
@@ -21,7 +22,7 @@ import java.lang.StringBuilder
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeViewModel @Inject constructor(private val productRepository: ProductRepository,application: Application) : AndroidViewModel(application){
+class HomeViewModel @Inject constructor(private val productRepository: ProductRepository,application: Context) : ViewModel(){
 
     val dataManager = DataManager(application.applicationContext)
     val readProductRoom : LiveData<List<ProductEntity>> = productRepository.readProduct()
@@ -50,18 +51,7 @@ class HomeViewModel @Inject constructor(private val productRepository: ProductRe
         }
     }
 
-    fun startTimer (){
-      val timer =   object : CountDownTimer(6000,1000){
-            override fun onTick(millisUntilFinished: Long) {
-                _liveTimer.value = millisUntilFinished.toInt().toString()
-            }
 
-            override fun onFinish() {
-                _finished.value = true
-            }
-
-        }.start()
-    }
     fun getProducts(){
         _liveProduct.value = NetworkHelper.Loading()
         productRepository.getProduct().enqueue(object : Callback<Products>{

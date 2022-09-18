@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import com.example.common.model.Products
 import com.example.network.ProductRepository
 import com.example.network.room.ProductEntity
+import com.example.network.room.SingleProduct
 import okhttp3.Request
 import okio.Timeout
 import retrofit2.Call
@@ -13,7 +14,9 @@ import retrofit2.Response
 
 val call : Call<Products>? =null
 val productEntitymock = mutableListOf<ProductEntity>()
+val singleproductEntitymock = mutableListOf<SingleProduct>()
 val observableEnityList = MutableLiveData<List<ProductEntity>>(productEntitymock)
+val singleobservableEnityList = MutableLiveData<SingleProduct>()
 class FakeRepository : ProductRepository {
 
     override fun getProduct(): Call<Products> {
@@ -32,6 +35,15 @@ class FakeRepository : ProductRepository {
     }
     override fun readProduct(): LiveData<List<ProductEntity>> {
         return observableEnityList
+    }
+
+    override suspend fun saveSingleProduct(singleProduct: SingleProduct) {
+        singleproductEntitymock.add(singleProduct)
+    }
+
+    override fun readSingleProduct(): LiveData<SingleProduct> {
+
+        return singleobservableEnityList
     }
 }
 

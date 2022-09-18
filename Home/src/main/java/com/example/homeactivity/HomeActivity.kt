@@ -18,6 +18,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import com.example.common.DataManager
 import com.example.common.NetworkHelper
@@ -32,10 +33,10 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class HomeActivity : AppCompatActivity(),Onclick {
+class HomeActivity : AppCompatActivity(), Onclick {
     lateinit var binding: ActivityHomeBinding
     lateinit var viewModel: HomeViewModel
-    val shimadapter = ProductAdapter(this,this)
+    val shimadapter = ProductAdapter(this, this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,30 +46,31 @@ class HomeActivity : AppCompatActivity(),Onclick {
         viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
 
         viewModel.getProducts()
-        val soonintent = Intent(this,ComingSoonActivity::class.java)
 
-        binding.bot.setOnItemSelectedListener(object : NavigationBarView.OnItemSelectedListener{
+        val soonintent = Intent(this, ComingSoonActivity::class.java)
+
+        binding.bot.setOnItemSelectedListener(object : NavigationBarView.OnItemSelectedListener {
             override fun onNavigationItemSelected(item: MenuItem): Boolean {
-                return when(item.itemId){
-                    R.id.settingid ->{
+                return when (item.itemId) {
+                    R.id.settingid -> {
                         startActivity(soonintent)
                         return true
                     }
-                    R.id.walletid ->{
+                    R.id.walletid -> {
                         startActivity(soonintent)
                         return true
                     }
 
-                     R.id.cartid ->{
-                        startActivity(soonintent)
+                    R.id.cartid -> {
+                        val cartintent = Intent(this@HomeActivity, PayOutActivity::class.java)
+                        startActivity(cartintent)
                         return true
                     }
-                     R.id.homeid ->{
-                         val homeIntent = Intent(this@HomeActivity,HomeActivity::class.java)
+                    R.id.homeid -> {
+                        val homeIntent = Intent(this@HomeActivity, HomeActivity::class.java)
                         startActivity(homeIntent)
                         return true
                     }
-
 
 
                     else -> {
@@ -83,7 +85,7 @@ class HomeActivity : AppCompatActivity(),Onclick {
             startActivity(soonintent)
         }
         binding.searchit.doOnTextChanged { text, start, before, count ->
-            Toast.makeText(this,"Search is Not Availible",Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Search is Not Availible", Toast.LENGTH_SHORT).show()
         }
 
         binding.camit.setOnClickListener {
@@ -134,8 +136,8 @@ class HomeActivity : AppCompatActivity(),Onclick {
     private fun roomProduct() {
         viewModel.readProductRoom.observe(this, Observer { prodcts ->
             if (prodcts.isNotEmpty()) {
-                    shimadapter.submitList(prodcts[0].products)
-                    hideShimmer()
+                shimadapter.submitList(prodcts[0].products)
+                hideShimmer()
 
             } else {
                 getnetProduct()
@@ -147,38 +149,40 @@ class HomeActivity : AppCompatActivity(),Onclick {
         viewModel.liveProduct.observe(this, Observer { prods ->
             Log.d("ONPRD", "${prods.data}")
             Log.d("ONPRDNSG", "${prods.message}")
-if (prods != null){
-            when (prods) {
-                is NetworkHelper.Loading -> {
-                    showShimmer()
-                }
-                is NetworkHelper.Success -> {
-                    hideShimmer()
-                    shimadapter.submitList(prods.data)
-                }
-                is NetworkHelper.Error -> {
-                    hideShimmer()
-                }
+            if (prods != null) {
+                when (prods) {
+                    is NetworkHelper.Loading -> {
+                        showShimmer()
+                    }
+                    is NetworkHelper.Success -> {
+                        hideShimmer()
+                        shimadapter.submitList(prods.data)
+                    }
+                    is NetworkHelper.Error -> {
+                        hideShimmer()
+                    }
 
+                }
+            } else {
+                Toast.makeText(this, "An Error Occured", Toast.LENGTH_SHORT).show()
             }
-    }else{
-        Toast.makeText(this,"An Error Occured",Toast.LENGTH_SHORT).show()
-    }
         })
     }
 
     @OptIn(DelicateCoroutinesApi::class)
     override fun click(productsItem: SingleProduct) {
         val dataManager = DataManager(this)
-                val products = Product(productsItem.image,productsItem.title)
-                GlobalScope.launch {
-                    dataManager.saveProduct(products)
-                }
-                val intent = Intent(this,DetailsActivity::class.java)
-                startActivity(intent)
+        val products = Product(productsItem.image, productsItem.title)
+        viewModel.saveSingleProduct(productsItem)
+        lifecycleScope.launch {
+            dataManager.saveProduct(products)
+        }
+
+        val intent = Intent(this, DetailsActivity::class.java)
+        startActivity(intent)
     }
 
-    fun  notificationManager(){
+    fun notificationManager() {
 
     }
 }

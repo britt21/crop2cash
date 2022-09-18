@@ -1,5 +1,6 @@
 package com.example
 
+import android.app.Application
 import android.content.Context
 import androidx.room.Room
 import androidx.room.RoomDatabase
@@ -74,6 +75,10 @@ object AppModule {
     @Singleton
     @Provides
     fun provideDao(cashDatabase: CashDatabase)= cashDatabase.cashDao
+
+    @Singleton
+    @Provides
+    fun provideContext(application: Application): Context = application.applicationContext
 
 
 }

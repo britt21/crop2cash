@@ -11,8 +11,8 @@
 
     <FrameLayout
         android:id="@+id/buytit"
-        android:layout_width="90dp"
-        android:layout_height="30dp"
+        android:layout_width="100dp"
+        android:layout_height="35dp"
         android:layout_marginStart="168dp"
         android:background="@drawable/price_bg"
         app:layout_constraintBottom_toBottomOf="@+id/frameLayout4"
@@ -72,21 +72,21 @@
         app:layout_constraintTop_toBottomOf="@+id/pname" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/phone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:rotation="-100"
         android:tint="@color/blu"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
-        app:layout_constraintStart_toEndOf="@+id/imageView3"
-        app:layout_constraintTop_toTopOf="@+id/imageView3"
+        app:layout_constraintBottom_toBottomOf="@+id/likebtn"
+        app:layout_constraintStart_toEndOf="@+id/likebtn"
+        app:layout_constraintTop_toTopOf="@+id/likebtn"
         app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/ic_baseline_phone_24"
         tools:ignore="UseAppTint" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/likebtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="14dp"

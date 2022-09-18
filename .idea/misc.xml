@@ -3,8 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/USER/AndroidStudioProjects/Crop2Cash/Home/src/main/res/drawable/activie_ic.xml" value="0.2805" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/Crop2Cash/Home/src/main/res/drawable/activie_icon.xml" value="0.2865" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Crop2Cash/Home/src/main/res/drawable/car.xml" value="0.2565" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Crop2Cash/Home/src/main/res/drawable/coming_soon_image.xml" value="0.245" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/Crop2Cash/Home/src/main/res/drawable/dong_ic.xml" value="0.2865" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Crop2Cash/Home/src/main/res/drawable/msg_bg.xml" value="0.2865" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Crop2Cash/Home/src/main/res/drawable/price_bg.xml" value="0.1" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Crop2Cash/Home/src/main/res/drawable/received_shape.xml" value="0.2865" />
@@ -13,9 +16,10 @@
         <entry key="..\:/Users/USER/AndroidStudioProjects/Crop2Cash/Home/src/main/res/layout/activity_coming_soon.xml" value="0.2879999900124293" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Crop2Cash/Home/src/main/res/layout/activity_details.xml" value="0.2879999900124293" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Crop2Cash/Home/src/main/res/layout/activity_home.xml" value="0.1745454484923814" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/Crop2Cash/Home/src/main/res/layout/activity_pay_out.xml" value="0.2879999900124293" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Crop2Cash/Home/src/main/res/layout/discount_dialog.xml" value="0.2879999900124293" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Crop2Cash/Home/src/main/res/layout/img_list.xml" value="0.28229166666666666" />
-        <entry key="..\:/Users/USER/AndroidStudioProjects/Crop2Cash/Home/src/main/res/layout/product_listitem.xml" value="0.2879999900124293" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/Crop2Cash/Home/src/main/res/layout/product_listitem.xml" value="0.21818181061547676" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Crop2Cash/Home/src/main/res/layout/recieved_msg.xml" value="0.21818181061547676" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Crop2Cash/Home/src/main/res/layout/shmmer_layout.xml" value="0.28229166666666666" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Crop2Cash/Home/src/main/res/menu/bottom_menu.xml" value="0.23703703703703705" />

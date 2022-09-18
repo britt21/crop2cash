@@ -6,15 +6,15 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.core.content.ContextCompat
 
-class ComingSoonActivity : AppCompatActivity() {
+class PayOutActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_coming_soon)
-        val bck = findViewById<Button>(R.id.backbtn)
+        setContentView(R.layout.activity_pay_out)
 
         window.statusBarColor = ContextCompat.getColor(this, R.color.drk_prpl)
 
-        bck.setOnClickListener {
+        val back = findViewById<Button>(R.id.backbtn)
+        back.setOnClickListener {
             val intent = Intent(this,HomeActivity::class.java)
             startActivity(intent)
         }

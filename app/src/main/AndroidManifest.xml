@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Crop2Cash">
         <activity
+            android:screenOrientation="portrait"
             android:name="com.example.onboarding.SplashActivity"
             android:exported="true">
             <intent-filter>
@@ -20,7 +21,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.homeactivity.HomeActivity"/>
+        <activity  android:screenOrientation="portrait" android:name="com.example.homeactivity.HomeActivity"/>
         <activity android:name=".MainActivity"/>
 
     </application>

@@ -4,6 +4,9 @@
 
     <application>
         <activity
+            android:name=".PayOutActivity"
+            android:exported="false" />
+        <activity
             android:name=".ComingSoonActivity"
             android:exported="false" />
         <activity
