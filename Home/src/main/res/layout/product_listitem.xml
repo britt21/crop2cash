@@ -10,6 +10,27 @@
 
 
     <FrameLayout
+        android:id="@+id/buytit"
+        android:layout_width="90dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="168dp"
+        android:background="@drawable/price_bg"
+        app:layout_constraintBottom_toBottomOf="@+id/frameLayout4"
+        app:layout_constraintStart_toEndOf="@+id/pname"
+        app:layout_constraintTop_toBottomOf="@+id/pname">
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Buy"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    </FrameLayout>
+
+    <FrameLayout
         android:id="@+id/frameLayout3"
         android:layout_width="match_parent"
         android:layout_height="160dp"
@@ -54,6 +75,7 @@
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
         android:rotation="-100"
         android:tint="@color/blu"
         app:layout_constraintBottom_toBottomOf="@+id/imageView3"

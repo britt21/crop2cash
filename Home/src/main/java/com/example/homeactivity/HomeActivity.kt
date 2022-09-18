@@ -169,7 +169,6 @@ if (prods != null){
 
     @OptIn(DelicateCoroutinesApi::class)
     override fun click(productsItem: SingleProduct) {
-        Toast.makeText(this,"ONclicked",Toast.LENGTH_SHORT).show()
         val dataManager = DataManager(this)
                 val products = Product(productsItem.image,productsItem.title)
                 GlobalScope.launch {

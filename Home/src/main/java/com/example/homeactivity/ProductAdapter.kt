@@ -5,6 +5,7 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat.startActivity
@@ -34,7 +35,7 @@ class ProductAdapter(val context : Context,val onclick: Onclick) : ListAdapter<P
     class ProductViewHolder(val view : View) : RecyclerView.ViewHolder(view){
         val rvimg = view.findViewById<RecyclerView>(R.id.rv_img)
         val ptitle = view.findViewById<TextView>(R.id.pname)
-
+        val buybtn = view.findViewById<FrameLayout>(R.id.buytit)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
@@ -45,17 +46,19 @@ class ProductAdapter(val context : Context,val onclick: Onclick) : ListAdapter<P
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
         val curList = getItem(position)
         holder.ptitle.text = curList.title
-        setUPrecyclerview(holder.rvimg,curList.images)
         var singleProduct = SingleProduct(0,"","")
 
-        val rv = holder.rvimg as View
-        rv.setOnClickListener {
+        holder.buybtn.setOnClickListener {
             title = curList.title
             for (images in curList.images){
                 singleProduct = SingleProduct(0,images,curList.title)
             }
             onclick.click(singleProduct)
         }
+        setUPrecyclerview(holder.rvimg,curList.images)
+
+        val rv = holder.rvimg as View
+
 
 
 
