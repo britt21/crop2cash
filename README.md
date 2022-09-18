@@ -1,6 +1,15 @@
 # Crop2Cash
+# Architecture Pattern: 
+## 1. Multi-Module Architecture Pattern to Achieve Separation of Concerns:
+
+## OnBoarding Layer
+## Common Layer
+## Home Layer
+## Network Layer
+
 # Libriary Used On this Project: 
-## 1. Multi-Module Architecture Pattern to Achieve Separation of Concern
+
+## 1. Android Jetpack Component
 
 ## 2. Hilt For Dependency Injection
 
@@ -18,8 +27,7 @@
 
 ## 9. Interface classes for Abstractions 
 
-#  Architectural Pattern Used:
-
+#  Architectural Design Used:
 ## Mvvm Architecture Pattern
 
 # Test:
