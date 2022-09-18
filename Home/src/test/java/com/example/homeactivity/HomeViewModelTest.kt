@@ -49,15 +49,4 @@ class HomeViewModelTest {
         TestCase.assertTrue(data.data == null)
     }
 
-    @Test
-    fun `checkitliveDataObserveEachProductAdded`(){
-        runTest {
-            val singleProduct = SingleProduct(1,"Black","Bone")
-            viewModel.saveSingleProduct(singleProduct)
-            val sdata = viewModel.readSingleProduct.getOrAwaitValueUnitTest()
-
-            assert(sdata.equals(null))
-        }
-    }
-
 }

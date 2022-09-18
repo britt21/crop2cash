@@ -141,7 +141,7 @@ class HomeActivity : AppCompatActivity(), Onclick {
     private fun roomProduct() {
         viewModel.readProductRoom.observe(this, Observer { prodcts ->
             if (prodcts.isNotEmpty()) {
-                shimadapter.submitList(prodcts[0].products)
+                shimadapter.submitList(prodcts[0].products.reversed())
                 hideShimmer()
 
             } else {
@@ -178,7 +178,6 @@ class HomeActivity : AppCompatActivity(), Onclick {
     override fun click(productsItem: SingleProduct) {
         val dataManager = DataManager(this)
         val products = Product(productsItem.image, productsItem.title)
-        viewModel.saveSingleProduct(productsItem)
         lifecycleScope.launch {
             dataManager.saveProduct(products)
         }

@@ -8,6 +8,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import coil.load
 import com.example.homeactivity.databinding.ActivityDetailsBinding
+import com.example.network.room.SingleProduct
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
