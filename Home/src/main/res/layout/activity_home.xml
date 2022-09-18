@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="#FFFFFF"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".HomeActivity">
 
     <com.mikelau.views.shimmer.ShimmerRecyclerViewX
@@ -67,12 +67,12 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:textSize="18dp"
-            android:text="Crop2Cash"
             android:layout_gravity="center|start"
+            android:layout_marginStart="20dp"
             android:fontFamily="monospace"
+            android:text="Crop2Cash"
             android:textColor="#FFFFFF"
+            android:textSize="18dp"
             android:textStyle="bold"
             app:layout_constraintTop_toTopOf="parent" />
     </FrameLayout>
@@ -92,13 +92,14 @@
 
         <EditText
             android:id="@+id/searchit"
-            android:hint="Search anything..."
-            android:paddingStart="70dp"
-            android:textSize="12dp"
-            android:textColor="@color/black"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/serach_bg"/>
+            android:background="@drawable/serach_bg"
+            android:hint="Search anything..."
+            android:paddingStart="70dp"
+            android:textColor="@color/black"
+            android:textSize="12dp" />
+
         <ImageView
             android:id="@+id/imageView2"
             android:layout_width="25dp"
@@ -125,8 +126,15 @@
         android:id="@+id/bot"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        app:menu="@menu/bottom_menu"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_menu" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/ctcbuide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="288dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

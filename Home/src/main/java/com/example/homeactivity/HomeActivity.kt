@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.preference.PreferenceManager
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.Menu
@@ -31,6 +32,9 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import uk.co.samuelwall.materialtaptargetprompt.MaterialTapTargetPrompt
+import uk.co.samuelwall.materialtaptargetprompt.extras.backgrounds.CirclePromptBackground
+import uk.co.samuelwall.materialtaptargetprompt.extras.focals.CirclePromptFocal
 
 @AndroidEntryPoint
 class HomeActivity : AppCompatActivity(), Onclick {
@@ -81,6 +85,7 @@ class HomeActivity : AppCompatActivity(), Onclick {
 
         })
 
+        showTargetPrompt()
         binding.msgct.setOnClickListener {
             startActivity(soonintent)
         }
@@ -185,4 +190,56 @@ class HomeActivity : AppCompatActivity(), Onclick {
     fun notificationManager() {
 
     }
+
+    fun showTargetPrompt(){
+val pmanager = PreferenceManager.getDefaultSharedPreferences(this)
+        if (!pmanager.getBoolean("didntShow",false)){
+            MaterialTapTargetPrompt.Builder(this)
+                .setTarget(binding.camit)
+                .setPrimaryText("Welcome to Crop2Cash")
+                .setSecondaryText("Become an Agent Take A picture and Start Selling")
+                .setBackButtonDismissEnabled(true)
+                .setPromptStateChangeListener { prmpt, state ->
+                    if (state == MaterialTapTargetPrompt.STATE_FOCAL_PRESSED || state == MaterialTapTargetPrompt.STATE_NON_FOCAL_PRESSED) {
+                        val peditor = pmanager.edit()
+                        peditor.putBoolean("didShowPropmt", true)
+                        peditor.apply()
+
+                        showNextPrompt()
+                    }
+                }.show()
+        }
+    }
+
+    private fun showNextPrompt(){
+        val pmanager = PreferenceManager.getDefaultSharedPreferences(this)
+        MaterialTapTargetPrompt.Builder(this)
+            .setTarget(binding.msgct)
+            .setPrimaryText("Check Your Messages")
+            .setSecondaryText("Don't Keep Your Customers Waiting, always Check your Messages Regularly")
+            .setBackButtonDismissEnabled(true)
+            .setPromptBackground(CirclePromptBackground())
+            .setPromptFocal(CirclePromptFocal())
+            .setPromptStateChangeListener { prmpt, state ->
+                if (state == MaterialTapTargetPrompt.STATE_FOCAL_PRESSED || state == MaterialTapTargetPrompt.STATE_NON_FOCAL_PRESSED) {
+                    val peditor = pmanager.edit()
+                    peditor.putBoolean("didShowPropmt", true)
+                    peditor.apply()
+
+                    showWelcome()
+                }
+            }.show()
+    }
+
+    private fun showWelcome(){
+        MaterialTapTargetPrompt.Builder(this)
+            .setTarget(binding.ctcbuide)
+            .setPrimaryText("You're all Started")
+            .setSecondaryText("You can now start buying and selling on Crop2Cash")
+            .setBackButtonDismissEnabled(true)
+            .setPromptBackground(CirclePromptBackground())
+            .setPromptFocal(CirclePromptFocal())
+            .show()
+    }
+
 }
