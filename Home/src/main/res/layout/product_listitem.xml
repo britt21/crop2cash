@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:padding="15dp"
     android:layout_margin="5dp"
     android:background="#F4F4F4"
@@ -11,25 +11,20 @@
 
     <FrameLayout
         android:id="@+id/frameLayout3"
-        android:layout_width="160dp"
+        android:layout_width="match_parent"
         android:layout_height="160dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/rc_img"
-            android:layout_width="wrap_content"
-            android:layout_height="150dp"
-            android:layout_gravity="center"
-            android:orientation="horizontal"
-            android:scaleType="centerCrop"
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             tools:listitem="@layout/img_list"
-            tools:srcCompat="@tools:sample/avatars" />
+            android:orientation="horizontal"
+            app:spanCount="1"
+            android:id="@+id/rv_img"
+            android:layout_height="match_parent" />
 
     </FrameLayout>
 

@@ -36,7 +36,7 @@ class HomeActivity : AppCompatActivity(),Onclick {
     lateinit var binding: ActivityHomeBinding
     lateinit var viewModel: HomeViewModel
     val shimadapter = ProductAdapter(this,this)
-    val imageAdapter = ImageAdapter()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -169,6 +169,7 @@ if (prods != null){
 
     @OptIn(DelicateCoroutinesApi::class)
     override fun click(productsItem: SingleProduct) {
+        Toast.makeText(this,"ONclicked",Toast.LENGTH_SHORT).show()
         val dataManager = DataManager(this)
                 val products = Product(productsItem.image,productsItem.title)
                 GlobalScope.launch {
@@ -176,7 +177,6 @@ if (prods != null){
                 }
                 val intent = Intent(this,DetailsActivity::class.java)
                 startActivity(intent)
-
     }
 
     fun  notificationManager(){

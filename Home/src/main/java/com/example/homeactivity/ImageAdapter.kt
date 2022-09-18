@@ -11,14 +11,14 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.common.model.ProductsItem
 
-class ImageAdapter : ListAdapter<ProductsItem, ImageAdapter.ImageViewHolder>(ImageDiffer) {
-    object ImageDiffer : DiffUtil.ItemCallback<ProductsItem>(){
-        override fun areItemsTheSame(oldItem: ProductsItem, newItem: ProductsItem): Boolean {
-            return oldItem.title === newItem.title
+class ImageAdapter (val onclick: imageClick): ListAdapter<String, ImageAdapter.ImageViewHolder>(ImageDiffer) {
+    object ImageDiffer : DiffUtil.ItemCallback<String>(){
+        override fun areItemsTheSame(oldItem: String, newItem: String): Boolean {
+            return oldItem.length == newItem.length
         }
 
-        override fun areContentsTheSame(oldItem: ProductsItem, newItem: ProductsItem): Boolean {
-            return oldItem.title == newItem.title
+        override fun areContentsTheSame(oldItem: String, newItem: String): Boolean {
+            return oldItem.length === newItem.length
         }
     }
 
@@ -27,14 +27,23 @@ class ImageAdapter : ListAdapter<ProductsItem, ImageAdapter.ImageViewHolder>(Ima
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ImageViewHolder {
-        return ImageViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.product_listitem,parent,false))
+        return ImageViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.img_list,parent,false))
     }
 
     override fun onBindViewHolder(holder: ImageViewHolder, position: Int) {
         val curList = getItem(position)
-        for (images in curList.images) {
-            holder.pimg.load(images)
+        holder.pimg.load(curList)
+        holder.pimg ?: holder.pimg.load("https://www.apple.com/newsroom/images/product/iphone/standard/apple_iphone-12-spring21_purple_04202021_big.jpg.large.jpg")
+
+        holder.itemView.setOnClickListener {
+            onclick.nimahe(curList)
         }
     }
 
+
+
+}
+
+interface imageClick{
+    fun nimahe(image : String, title : String? = "")
 }
