@@ -9,6 +9,7 @@ import com.example.common.model.Products
 import com.example.network.room.CashDao
 import com.example.network.room.CashDatabase
 import com.example.network.room.ProductEntity
+import com.example.network.room.SingleProduct
 import com.google.common.truth.Truth.assertThat
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
@@ -57,6 +58,17 @@ class DatabaseTest {
             val value = dao.getProducts().getOrAwaitValue()
             assertThat(value).isNotEmpty()
 
+        }
+    }
+
+    @Test
+    fun insertSingleProduct(){
+        runTest {
+
+            val singleProducts = SingleProduct(1,"htps","cpcs")
+            dao.savesingleProduct(singleProducts)
+            val data = dao.readsingleProduct().getOrAwaitValue()
+            assertThat(data).isNotEqualTo(null)
         }
     }
 }
